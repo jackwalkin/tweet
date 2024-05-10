@@ -133,7 +133,7 @@ st.write(
 streamlit_analytics.start_tracking()
 st.title("Dreamerly MVP")
 st.markdown(
-    "This app is designed to help you generate the blurb and front cover of your next story book. If you are interested in getting the complete book mailed to you in 2 weeks please contact us. "
+    "This app is designed to help you generate the blurb and front cover of your next story book. If you are interested in getting the complete book mailed to you in 2 weeks please [contact us](mailto:hello@dreamerly.au). "
 )
 
 topic = st.text_input(label="Topic (or hashtag)", placeholder="AI")
