@@ -5,12 +5,18 @@ import os
 import logging
 
 # Import from 3rd party libraries
-import openai
+from openai import OpenAI
 import streamlit as st
 
+
+# Import dotenv to load .env files
+from dotenv import load_dotenv
+
 # Instantiate OpenAI with credentials from environment or streamlit secrets
-openai_key = os.getenv("OPENAI_API_KEY") or st.secrets["OPENAI_API_KEY"]
-client = openai.OpenAI(api_key=openai_key)
+print("getting variable")
+load_dotenv()
+openai_key = os.getenv("OPENAI_API_KEY")
+client =OpenAI(api_key=openai_key)
 
 # Suppress openai request/response logging
 # Handle by manually changing the respective APIRequestor methods in the openai package

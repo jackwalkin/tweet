@@ -14,6 +14,7 @@ import streamlit_analytics
 import tweets as twe
 import oai
 
+
 # Configure logger
 logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, force=True)
 
@@ -39,8 +40,8 @@ def generate_text(topic: str, mood: str = "", style: str = ""):
         with st.spinner("Please wait while your Tweet is being generated..."):
             mood_prompt = f"{mood} " if mood else ""
             if style:
-                twitter = twe.Tweets(account=style)
-                tweets = twitter.fetch_tweets()
+                # twitter = twe.Tweets(account=style)
+                tweets = "This is what happens when you do not recycle your pizza boxes" #twitter.fetch_tweets()
                 tweets_prompt = "\n\n".join(tweets)
                 prompt = (
                     f"Write a {mood_prompt}Tweet about {topic} in less than 120 characters "
@@ -130,9 +131,9 @@ st.write(
 
 # Render Streamlit page
 streamlit_analytics.start_tracking()
-st.title("Generate Tweets")
+st.title("Dreamerly MVP")
 st.markdown(
-    "This mini-app generates Tweets using OpenAI's [GPTs](https://beta.openai.com/docs/models/overview) for texts and [DALL·E](https://beta.openai.com/docs/guides/images) for images. You can find the code on [GitHub](https://github.com/kinosal/tweet) and the author on [Twitter](https://twitter.com/kinosal)."
+    "This app is designed to help you generate the blurb and front cover of your next story book. If you are interested in getting the complete book mailed to you in 2 weeks please contact us. "
 )
 
 topic = st.text_input(label="Topic (or hashtag)", placeholder="AI")
@@ -217,12 +218,8 @@ if st.session_state.tweet:
     col1, col2 = st.columns(2)
     with col1:
         st.markdown(
-            "**Other Streamlit apps by [@kinosal](https://twitter.com/kinosal)**"
+            "**What's up!**"
         )
-        st.markdown("[Twitter Wrapped](https://twitter-likes.streamlit.app)")
-        st.markdown("[Content Summarizer](https://web-summarizer.streamlit.app)")
-        st.markdown("[Code Translator](https://english-to-code.streamlit.app)")
-        st.markdown("[PDF Analyzer](https://pdf-keywords.streamlit.app)")
     with col2:
         st.write("If you like this app, please consider to")
         components.html(
